@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juva Task Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 id="project-title">Project</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link">Project List</a></li>
+                    <li><a href="#" class="nav-link">Calendar</a></li>
+                    <li><a href="#" class="nav-link">Analytics</a></li>
+                    <li><a href="#" class="nav-link">Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-projects">
+                <h2>Projects</h2>
+                <ul id="project-list">
+                    <li><a href="#" class="project-link" onclick="togglePopup('add-project-popup')">+ Add Project</a></li>
+                </ul>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <button class="hamburger-menu">&#9776;</button>
+                <h2 id="dashboard-title">Dashboard</h2>
+                <button class="add-member-btn" onclick="togglePopup('add-member-popup')">+ Add Member</button>
+            </header>
+            <section class="task-section">
+                <div class="task-board">
+                    <div class="task-column to-do">
+                        <h3>To Do</h3>
+                        <button class="add-task-btn" onclick="togglePopup('add-task-popup')">+ Add New Task</button>
+                        <div class="task" id="task-todo">
+                            <!-- Tasks will be dynamically added here -->
+                        </div>
+                    </div>
+                    <div class="task-column in-progress">
+                        <h3>In Progress</h3>
+                        <button class="add-task-btn" onclick="togglePopup('add-task-popup')">+ Add New Task</button>
+                        <div class="task" id="task-inprogress">
+                            <!-- Tasks will be dynamically added here -->
+                        </div>
+                    </div>
+                    <div class="task-column completed">
+                        <h3>Completed</h3>
+                        <button class="add-task-btn" onclick="togglePopup('add-task-popup')">+ Add New Task</button>
+                        <div class="task" id="task-completed">
+                            <!-- Tasks will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="pop-ups">
+        <div class="add-member pop-up" id="add-member-popup">
+            <form class="add-member-form">
+                <h3>Add Member</h3>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" placeholder="Enter name"><br>
+                <label for="jobrole">Job role:</label><br>
+                <input type="text" id="jrole" name="jrole" placeholder="Enter job"><br>
+                <div class="buttons-container">
+                    <input type="submit" value="Add" id="submit-member-btn"><br>
+                    <button type="button" id="cancel-member-btn" onclick="togglePopup('add-member-popup')">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="add-task pop-up" id="add-task-popup">
+            <form class="add-task-form" onsubmit="addTask(event)">
+                <h3>Add Task</h3>
+                <label for="tname">Task Name:</label><br>
+                <input type="text" id="tname" name="tname" placeholder="Enter task name"><br>
+                <label for="tdesc">Description:</label><br>
+                <input type="text" id="tdesc" name="tdesc" placeholder="Enter task description"><br>
+                <label for="tpriority">Task Priority</label><br>
+                <input type="text" list="priority" id="tpriority" name="tpriority" placeholder="Choose priority"><br>
+                <datalist id="priority">
+                    <option value="Low">
+                    <option value="Medium">
+                    <option value="High">
+                </datalist>
+                <label for="tcategory">Task Category</label><br>
+                <input type="text" list="category" id="tcategory" name="tcategory" placeholder="Choose category"><br>
+                <datalist id="category">
+                    <option value="Design">
+                    <option value="Devops">
+                    <option value="Engineering">
+                    <option value="QA">
+                </datalist>
+                <label for="tasignee">Task Assignee</label><br>
+                <input type="text" list="asignee" id="tasignee" name="tasignee" placeholder="Choose assignee"><br>
+                <datalist id="asignee">
+                    <option value="Abdulganiyy Ajayi">
+                    <option value="Excel Oluwatobi">
+                    <option value="Dele Nedd">
+                    <option value="Kehinde Shogbamu">
+                    <option value="David Ike-Njoku">
+                </datalist>
+                <div class="buttons-container">
+                    <input type="submit" value="Add" id="submit-task-btn"><br>
+                    <button type="button" id="cancel-task-btn" onclick="togglePopup('add-task-popup')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="add-project pop-up" id="add-project-popup">
+        <form class="add-project-form" onsubmit="addProject(event)">
+            <h3>Add Project</h3>
+            <label for="pname">Project Name:</label><br>
+            <input type="text" id="pname" name="pname" placeholder="Enter project name"><br>
+            <label for="pdesc">Description:</label><br>
+            <input type="text" id="pdesc" name="pdesc" placeholder="Enter project description"><br>
+            <div class="buttons-container">
+                <input type="submit" value="Add" id="submit-project-btn"><br>
+                <button type="button" id="cancel-project-btn" onclick="togglePopup('add-project-popup')">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="nav-bar.js"></script>
+    <script src="new-member.js"></script>
+    <script src="new-task.js"></script>
+    <script src="new-project.js"></script>
+</body>
+</html>

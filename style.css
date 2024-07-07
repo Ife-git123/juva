@@ -1,0 +1,264 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: white;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    color: gray;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav ul li a {
+    color: gray;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #6A4BE7;
+    color: white;
+}
+
+.sidebar-projects {
+    margin-top: auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.sidebar-projects h2 {
+    margin-bottom: 10px;
+}
+
+.sidebar-projects ul {
+    list-style: none;
+}
+
+.sidebar-projects ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-projects ul li a {
+    color: gray;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.sidebar-projects ul li a:hover {
+    background-color: #6A4BE7;
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.add-member-btn {
+    background-color: #6A4BE7;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-member-btn:hover {
+    background-color: #5a37e7;
+}
+
+.task-section {
+    display: flex;
+    gap: 20px;
+}
+
+.task-board {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.task-column {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.task-column h3 {
+    margin-bottom: 10px;
+}
+
+.add-task-btn {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #6A4BE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background-color: #5a37e7;
+}
+
+.task {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-up {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.pop-up h3 {
+    margin-bottom: 20px;
+}
+
+.pop-up label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.pop-up input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons-container input[type="submit"],
+.buttons-container button {
+    background-color: #6A4BE7;
+    color: white;
+    width: 48%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 1%;
+    box-sizing: border-box;
+}
+
+.buttons-container input[type="submit"]:hover,
+.buttons-container button:hover {
+    background-color: white;
+    color: #6A4BE7;
+    border: 2px solid #6A4BE7;
+}
+
+.buttons-container input[type="submit"] {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttons-container button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
